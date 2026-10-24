@@ -6,6 +6,7 @@
  * Counts the consonants and vowels in a string.
  */
 #include <stdio.h>
+#include <SDL2
 
 int main(void) {
 

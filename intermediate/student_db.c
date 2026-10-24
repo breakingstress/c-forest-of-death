@@ -36,7 +36,7 @@ void add_student(student_database *,char *, char *, size_t);
 void alloc_err_msg(char *);
 student *get_id(student_database *, const char *);
 student *get_highest_grade(student_database *);
-size_t calc_avg_grade(student_database *);
+float calc_avg_grade(student_database *);
 
 int main(void) {
     /* Initialise student database */
@@ -57,6 +57,9 @@ int main(void) {
 
     print_student(database.database);
     print_all_students(&database); // testing for the student
+
+    /* Prompts */
+    /* Add student, search by ID, highest grade, average grade */
 }
 
 /* Adds a student to the given student database */
@@ -108,4 +111,38 @@ void print_all_students(student_database *sdb) {
         current_student = sdb->database[i];
         printf("%s: %s\n", current_student.id, current_student.name);
     }
+}
+
+student *get_id(student_database *db, const char *id) {
+    for (size_t i = 0; i < db->capacity; i++) {
+        if (db->database[i].id == id) return db->database+i;
+    }
+
+    puts(RED_TERMINAL_TEXT "Invalid ID" RESET_TERMINAL_TEXT);
+
+    return NULL;
+}
+
+student *get_highest_grade(student_database *db) {
+    size_t max = 0;
+    student *top_student;
+
+    for (size_t i = 0; i < db->capacity; i++) {
+        if (db->database[i].grade > max) {
+            max = db->database[i].grade;
+            top_student = db->database+i;
+        }
+    }
+
+    return top_student;
+}
+
+float calc_avg_grade(student_database *db) {
+    float grades = 0;
+
+    for (size_t i = 0; i < db->capacity; i++) {
+        grades += (float) db->database[i].grade;
+    }
+
+    return (grades/db->capacity);
 }

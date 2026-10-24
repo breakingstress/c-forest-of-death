@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/mingw_dev_lib/SDL2-2.32.10/include/SDL2",
+                "C:/mingw_dev_lib/SDL2_image-2.8.12/include/SDL2",
+                "C:/mingw_dev_lib/SDL2_mixer-2.8.2/include/SDL2",
+                "C:/mingw_dev_lib/SDL2_ttf-2.24.0/include/SDL2",
+                "C:/mingw_dev_lib/SDL2_net-2.4.0/include/SDL2",
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.26100.0",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
